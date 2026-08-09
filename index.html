@@ -1,1 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>SevaManjari — Coming Soon</title>
+
+    <meta name="description"
+          content="SevaManjari is a dedicated marketplace connecting devotees with trusted artisans and manufacturers of Thakur Ji Seva products. Coming Soon.">
+
+    <meta name="theme-color" content="#7b1e1e">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #fffaf3;
+            color: #321414;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --maroon: #7b1e1e;
+            --dark-maroon: #4b1010;
+            --gold: #c99a32;
+            --light-gold: #e7c873;
+            --cream: #fffaf3;
+            --soft-cream: #f8ead7;
+            --text: #321414;
+            --muted: #765f5f;
+            --white: #ffffff;
+        }
+
+
+        /* =====================================================
+           DECORATIVE BACKGROUND
+        ===================================================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(201, 154, 50, 0.12),
+                transparent 65%
+            );
+            top: -250px;
+            left: -200px;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(123, 30, 30, 0.08),
+                transparent 65%
+            );
+            bottom: -250px;
+            right: -180px;
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            width: 100%;
+            padding: 24px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-symbol {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--maroon);
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--maroon);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-badge {
+            border: 1px solid rgba(123, 30, 30, 0.2);
+            padding: 8px 15px;
+            border-radius: 50px;
+            color: var(--maroon);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 7% 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1050px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        h1 {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--maroon);
+            font-size: clamp(65px, 10vw, 125px);
+            line-height: 0.85;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .tagline {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(24px, 3vw, 38px);
+            font-weight: 600;
+            color: var(--dark-maroon);
+            margin-bottom: 22px;
+        }
+
+        .description {
+            max-width: 680px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           LAUNCH BADGE
+        ===================================================== */
+
+        .launch-badge {
+            margin: 35px auto 30px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 20px;
+            background: rgba(123, 30, 30, 0.06);
+            border: 1px solid rgba(123, 30, 30, 0.12);
+            border-radius: 50px;
+            color: var(--maroon);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(201, 154, 50, 0.12);
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            max-width: 850px;
+            margin: 45px auto;
+        }
+
+        .feature {
+            padding: 23px 18px;
+            border: 1px solid rgba(123, 30, 30, 0.10);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.55);
+            transition: 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 154, 50, 0.5);
+            box-shadow: 0 15px 35px rgba(75, 16, 16, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--maroon);
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           EMAIL FORM
+        ===================================================== */
+
+        .notify-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+            color: var(--maroon);
+            margin-bottom: 12px;
+        }
+
+        .notify-text {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .notify-form {
+            max-width: 480px;
+            margin: auto;
+            display: flex;
+            padding: 5px;
+            background: white;
+            border: 1px solid rgba(123, 30, 30, 0.12);
+            border-radius: 50px;
+            box-shadow: 0 12px 30px rgba(75, 16, 16, 0.08);
+        }
+
+        .notify-form input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 13px 17px;
+            background: transparent;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .notify-form button {
+            border: none;
+            background: var(--maroon);
+            color: white;
+            padding: 13px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .notify-form button:hover {
+            background: var(--dark-maroon);
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            width: 100%;
+            padding: 25px 7%;
+            border-top: 1px solid rgba(123, 30, 30, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted);
+            font-size: 11px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--maroon);
+        }
+
+
+        /* =====================================================
+           DECORATIVE MOTIF
+        ===================================================== */
+
+        .mandala {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(201, 154, 50, 0.15);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .mandala::before {
+            content: "";
+            position: absolute;
+            inset: 25px;
+            border: 1px dashed rgba(201, 154, 50, 0.2);
+            border-radius: 50%;
+        }
+
+        .mandala::after {
+            content: "✦";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(201, 154, 50, 0.15);
+            font-size: 50px;
+        }
+
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ===================================================== */
+
+        .success-message {
+            display: none;
+            margin-top: 15px;
+            color: #55703c;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 20px 5%;
+            }
+
+            .logo-text {
+                font-size: 25px;
+            }
+
+            .nav-badge {
+                display: none;
+            }
+
+            .hero {
+                padding: 50px 5% 60px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .notify-form {
+                flex-direction: column;
+                border-radius: 15px;
+                gap: 5px;
+                padding: 6px;
+            }
+
+            .notify-form input {
+                width: 100%;
+                text-align: center;
+            }
+
+            .notify-form button {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .mandala {
+                width: 230px;
+                height: 230px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="#" class="logo">
+
+        <div class="logo-symbol">
+            ✦
+        </div>
+
+        <span class="logo-text">
+            SevaManjari
+        </span>
+
+    </a>
+
+    <div class="nav-badge">
+        COMING SOON
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main class="hero">
+
+    <div class="mandala"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            A NEW ERA OF DEVOTIONAL COMMERCE
+        </div>
+
+
+        <h1>
+            SevaManjari
+        </h1>
+
+
+        <div class="tagline">
+            Where Devotion Meets Craftsmanship
+        </div>
+
+
+        <p class="description">
+
+            SevaManjari is building a dedicated digital marketplace
+            connecting devotees with trusted artisans and manufacturers
+            of authentic Thakur Ji Seva products — all in one place.
+
+        </p>
+
+
+        <div class="launch-badge">
+
+            <span class="pulse"></span>
+
+            LAUNCHING SOON
+
+        </div>
+
+
+        <!-- =================================================
+             FEATURES
+        ================================================= -->
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Authentic Seva Products
+                </h3>
+
+                <p>
+                    Discover beautifully crafted products made
+                    specifically for Thakur Ji Seva.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    Trusted Artisans
+                </h3>
+
+                <p>
+                    Connect with skilled artisans and manufacturers
+                    from across India.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ♢
+                </div>
+
+                <h3>
+                    One Dedicated Marketplace
+                </h3>
+
+                <p>
+                    A simple and trusted place to discover,
+                    compare and purchase seva essentials.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NOTIFICATION
+        ================================================= -->
+
+        <div class="notify-title">
+            Be the First to Know
+        </div>
+
+        <p class="notify-text">
+            Join our early access list and receive updates about
+            the SevaManjari launch.
+        </p>
+
+
+        <form class="notify-form" id="notifyForm">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                Notify Me
+            </button>
+
+        </form>
+
+
+        <div class="success-message" id="successMessage">
+            Thank you! We'll notify you when SevaManjari launches.
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        © 2026 SevaManjari. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+
+        <a href="#">
+            Privacy
+        </a>
+
+        <a href="#">
+            Terms
+        </a>
+
+        <a href="mailto:hello@sevamanjari.in">
+            Contact
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /*
+     * Coming Soon Notification
+     *
+     * This currently shows a success message.
+     *
+     * Connect this form to your backend/email service
+     * before production.
+     */
+
+    document
+        .getElementById("notifyForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("email").value;
+
+            const success =
+                document.getElementById("successMessage");
+
+            if (email) {
+
+                success.style.display = "block";
+
+                this.reset();
+
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
